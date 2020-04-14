@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>korea</title>
+<style>
+body {
+  margin: 0px !important; //remove chrome default body margin: 8px
+}
+
+rect {
+  fill: none;
+  pointer-events: all;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+path{
+    fill: gainsboro;
+    stroke: white;
+    stroke-width: 0.5px;
+}
+
+.feature {
+  fill: #ccc;
+  cursor: pointer;
+}
+
+.feature.active {
+  fill: orange;
+}
+
+
+</style>
+<script src="http://d3js.org/d3.v5.min.js"></script>
+<!-- <script src="https://unpkg.com/topojson@3"></script> -->
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="map.js"></script>
+<script>
+	var KOREA_JSON_DATA_URL = "data/skorea-municipalities-topo2.json",
+		TEST_SPOT_JSON_DATA_URL = "data/test.json";
+	
+	function initialize(){
+		d3.json( TEST_SPOT_JSON_DATA_URL).then( function( _data){
+		    d3_korea_map( "body", _data);
+		})
+	}
+</script>
+</head>
+<body onload="initialize()">
+    <div id="map"></div>
+</body>
+</html>
